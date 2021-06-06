@@ -1,5 +1,6 @@
 package xyz.khodok.khoBlog
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import xyz.khodok.khoBlog.model.response.Post
 
 
-class PostAdapter(private val postList: List<Post>) :
-    RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class MainAdapter(private val postList: List<Post>, internal var context: Context, var listener: MainActivity.RecyclerItemListener) :
+    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.post_item, parent, false)
@@ -19,6 +20,10 @@ class PostAdapter(private val postList: List<Post>) :
 
     override fun getItemCount(): Int {
         return postList.size
+    }
+
+    fun getItemAtPosition(pos: Int): Post {
+        return postList[pos]
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

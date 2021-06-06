@@ -1,7 +1,9 @@
 package xyz.khodok.khoBlog
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import xyz.khodok.khoBlog.detail.PostDetailActivity
 import xyz.khodok.khoBlog.model.response.Post
 import xyz.khodok.khoBlog.network.RetrofitClient
 import xyz.khodok.khoBlog.network.RetrofitInteface
 
 class MainActivity : AppCompatActivity() {
     private lateinit var postRecyclerView: RecyclerView
+    private var adapter: MainAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +41,8 @@ class MainActivity : AppCompatActivity() {
                     val postList = response.body()!!
                     Log.d("Response", "Postlist size : ${postList.size}")
                     postRecyclerView.apply {
-                        setHasFixedSize(true)
                         layoutManager = LinearLayoutManager(this@MainActivity)
-                        adapter = PostAdapter(response.body()!!)
+                        adapter = MainAdapter(postList, this@MainActivity, itemListener)
                     }
                 } else {
                     Toast.makeText(
@@ -55,5 +58,24 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         })
+    }
+
+    /**
+     * Listener for clicks on tasks in the ListView.
+     */
+    internal var itemListener: RecyclerItemListener = object : RecyclerItemListener {
+        override fun onItemClick(v: View, position: Int) {
+
+            val post = adapter?.getItemAtPosition(position)
+
+            val intent = Intent(this@MainActivity, PostDetailActivity::class.java)
+            intent.putExtra("id", post?.id)
+            startActivity(intent)
+
+        }
+    }
+
+    interface RecyclerItemListener {
+        fun onItemClick(v: View, position: Int)
     }
 }
