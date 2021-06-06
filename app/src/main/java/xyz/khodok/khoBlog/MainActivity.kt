@@ -14,7 +14,7 @@ import retrofit2.Response
 import xyz.khodok.khoBlog.detail.PostDetailActivity
 import xyz.khodok.khoBlog.model.response.Post
 import xyz.khodok.khoBlog.network.RetrofitClient
-import xyz.khodok.khoBlog.network.RetrofitInteface
+import xyz.khodok.khoBlog.network.RetrofitInterface
 
 class MainActivity : AppCompatActivity() {
     private lateinit var postRecyclerView: RecyclerView
@@ -31,15 +31,16 @@ class MainActivity : AppCompatActivity() {
         postRecyclerView = findViewById(R.id.post_recycler)
 
         //initiate the service
-        val destinationService = RetrofitClient.buildService(RetrofitInteface::class.java)
+        val destinationService = RetrofitClient.buildService(RetrofitInterface::class.java)
         val requestCall = destinationService.getPostList()
+
         //make network call asynchronously
         requestCall.enqueue(object : Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                Log.d("Response", "onResponse: ${response.body()}")
+
                 if (response.isSuccessful) {
                     val postList = response.body()!!
-                    Log.d("Response", "Postlist size : ${postList.size}")
+
                     postRecyclerView.apply {
                         layoutManager = LinearLayoutManager(this@MainActivity)
                         adapter = MainAdapter(postList, this@MainActivity, itemListener)
@@ -69,9 +70,8 @@ class MainActivity : AppCompatActivity() {
             val post = adapter?.getItemAtPosition(position)
 
             val intent = Intent(this@MainActivity, PostDetailActivity::class.java)
-            intent.putExtra("id", post?.id)
+            intent.putExtra("title", post?.title)
             startActivity(intent)
-
         }
     }
 
