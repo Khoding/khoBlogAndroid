@@ -1,0 +1,59 @@
+package xyz.khodok.khoBlog
+
+import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import xyz.khodok.khoBlog.model.response.Post
+import xyz.khodok.khoBlog.network.RetrofitClient
+import xyz.khodok.khoBlog.network.RetrofitInteface
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var postRecyclerView: RecyclerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        postRecyclerView = findViewById(R.id.post_recycler)
+
+        //initiate the service
+        val destinationService = RetrofitClient.buildService(RetrofitInteface::class.java)
+        val requestCall = destinationService.getPostList()
+        //make network call asynchronously
+        requestCall.enqueue(object : Callback<List<Post>> {
+            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
+                Log.d("Response", "onResponse: ${response.body()}")
+                if (response.isSuccessful) {
+                    val postList = response.body()!!
+                    Log.d("Response", "Postlist size : ${postList.size}")
+                    postRecyclerView.apply {
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        adapter = PostAdapter(response.body()!!)
+                    }
+                } else {
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Something went wrong ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Post>>, t: Throwable) {
+                Toast.makeText(this@MainActivity, "Something went wrong $t", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+    }
+}
