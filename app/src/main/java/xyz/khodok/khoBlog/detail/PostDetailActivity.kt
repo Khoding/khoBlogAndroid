@@ -1,43 +1,47 @@
 package xyz.khodok.khoBlog.detail
 
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import xyz.khodok.khoBlog.MainAdapter
+import androidx.appcompat.app.AppCompatActivity
 import xyz.khodok.khoBlog.R
+import xyz.khodok.khoBlog.model.RemoteDataSource
 import xyz.khodok.khoBlog.model.response.Post
-import xyz.khodok.khoBlog.network.RetrofitClient
-import xyz.khodok.khoBlog.network.RetrofitInterface
 
-class PostDetailActivity : AppCompatActivity() {
-    private lateinit var cityName: String
+class PostDetailActivity : AppCompatActivity(), PostDetailContract.ViewInterface {
+    private lateinit var postTitle: String
 
     //Views
-    private lateinit var cityTextView: TextView
-    private lateinit var currentDescriptionTextView: TextView
-    private lateinit var appBar: androidx.appcompat.widget.Toolbar
+    private lateinit var postTitleTextView: TextView
+    private lateinit var postDescriptionTextView: TextView
 
-    override fun onStart() {
-        super.onStart()
-    }
+    //Presenter
+    private lateinit var postDetailPresenter: PostDetailContract.PresenterInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.post_item)
-        cityName = intent.getStringExtra("title").toString()
+        postTitle = intent.getStringExtra("title").toString()
+        setupPresenter()
         setupViews()
-        appBar.title = cityName
+    }
+
+    private fun setupPresenter() {
+        val dataSource = RemoteDataSource()
+        postDetailPresenter = PostDetailPresenter(this, dataSource)
     }
 
     private fun setupViews() {
-
+        postTitleTextView = findViewById(R.id.post_title)
+        postDescriptionTextView = findViewById(R.id.post_description)
     }
 
+    override fun displayPost(response: Post) {
+        postTitleTextView.text = response.title
+        postDescriptionTextView.text = response.description
+    }
+
+    override fun showError(message: String) {
+        TODO("Not yet implemented")
+    }
 }

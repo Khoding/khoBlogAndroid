@@ -2,4 +2,7 @@
     <string name="app_name">Khodok\'s Blog</string>
     <string name="description">Description</string>
     <string name="title">Title</string>
+    <string name="title_activity_post_detail_host">Post Detail Host Activity</string>
+    <string name="title_post_list">Items</string>
+    <string name="title_post_detail">Post Detail</string>
 </resources>

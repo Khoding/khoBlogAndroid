@@ -12,39 +12,47 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.khodok.khoBlog.detail.PostDetailActivity
+import xyz.khodok.khoBlog.model.RemoteDataSource
 import xyz.khodok.khoBlog.model.response.Post
 import xyz.khodok.khoBlog.network.RetrofitClient
 import xyz.khodok.khoBlog.network.RetrofitInterface
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PostContract.ViewInterface {
+
     private lateinit var postRecyclerView: RecyclerView
     private var adapter: MainAdapter? = null
+
+    private var destinationService = RetrofitClient.buildService(RetrofitInterface::class.java)
+    private var requestCall = destinationService.getPostList()
+
+    private lateinit var postPresenter: PostContract.PresenterInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setUpPresenter()
         setupViews()
     }
 
     private fun setupViews() {
         postRecyclerView = findViewById(R.id.post_recycler)
+        postRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
 
-        //initiate the service
-        val destinationService = RetrofitClient.buildService(RetrofitInterface::class.java)
-        val requestCall = destinationService.getPostList()
-
-        //make network call asynchronously
         requestCall.enqueue(object : Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
 
                 if (response.isSuccessful) {
-                    val postList = response.body()!!
+                   val postList = response.body()!!
 
-                    postRecyclerView.apply {
-                        layoutManager = LinearLayoutManager(this@MainActivity)
-                        adapter = MainAdapter(postList, this@MainActivity, itemListener)
-                    }
+                    postRecyclerView.setHasFixedSize(true)
+                    postRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+                    postRecyclerView.adapter = MainAdapter(
+                            postList,
+                            this@MainActivity,
+                            itemListener
+                        )
                 } else {
                     Toast.makeText(
                         this@MainActivity,
@@ -61,6 +69,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun setUpPresenter() {
+        val dataSource = RemoteDataSource()
+        postPresenter = PostPresenter(this, dataSource)
+    }
+
+    override fun displayResult(response: Post) {
+        adapter?.notifyDataSetChanged()
+    }
+
+    override fun displayError(message: String) {
+        TODO("Not yet implemented")
+    }
+
     /**
      * Listener for clicks on tasks in the ListView.
      */
@@ -69,9 +90,12 @@ class MainActivity : AppCompatActivity() {
 
             val post = adapter?.getItemAtPosition(position)
 
+            Log.d("PostId: ", post.toString())
+
             val intent = Intent(this@MainActivity, PostDetailActivity::class.java)
-            intent.putExtra("title", post?.title)
+            intent.putExtra("postTitle", post?.title)
             startActivity(intent)
+
         }
     }
 
