@@ -44,15 +44,15 @@ class MainActivity : AppCompatActivity(), PostContract.ViewInterface {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
 
                 if (response.isSuccessful) {
-                   val postList = response.body()!!
+                    val postList = response.body()!!
 
                     postRecyclerView.setHasFixedSize(true)
                     postRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
                     postRecyclerView.adapter = MainAdapter(
-                            postList,
-                            this@MainActivity,
-                            itemListener
-                        )
+                        postList,
+                        this@MainActivity,
+                        itemListener
+                    )
                 } else {
                     Toast.makeText(
                         this@MainActivity,

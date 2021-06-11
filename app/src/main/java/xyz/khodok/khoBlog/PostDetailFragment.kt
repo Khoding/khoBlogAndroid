@@ -1,12 +1,11 @@
 package xyz.khodok.khoBlog
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import xyz.khodok.khoBlog.databinding.FragmentPostDetailBinding
 import xyz.khodok.khoBlog.model.response.Post
 

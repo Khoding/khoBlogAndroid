@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
 import xyz.khodok.khoBlog.model.RemoteDataSource
 import xyz.khodok.khoBlog.model.response.Post
 

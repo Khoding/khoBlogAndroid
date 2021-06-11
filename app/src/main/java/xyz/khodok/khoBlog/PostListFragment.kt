@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -128,7 +127,8 @@ class PostListFragment : Fragment() {
         recyclerView: RecyclerView,
         onClickListener: View.OnClickListener,
         onContextClickListener: View.OnContextClickListener
-    ) { requestCall.clone().enqueue(object : Callback<List<Post>> {
+    ) {
+        requestCall.clone().enqueue(object : Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
 
                 if (response.isSuccessful) {
