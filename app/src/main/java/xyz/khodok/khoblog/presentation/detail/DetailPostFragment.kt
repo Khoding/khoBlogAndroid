@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import xyz.khodok.khoblog.databinding.FragmentDetailPostBinding
 import xyz.khodok.khoblog.presentation.detail.viewmodel.DetailPostViewModel
-import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailPostFragment : Fragment() {

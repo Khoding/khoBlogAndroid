@@ -4,7 +4,7 @@ import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class SchedulerProvider private constructor(): BaseSchedulerProvider {
+class SchedulerProvider private constructor() : BaseSchedulerProvider {
 
     override fun computation(): Scheduler {
         return Schedulers.computation()

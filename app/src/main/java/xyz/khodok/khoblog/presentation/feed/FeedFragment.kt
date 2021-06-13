@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import xyz.khodok.domain.model.Post
 import xyz.khodok.khoblog.databinding.FragmentFeedBinding
 import xyz.khodok.khoblog.presentation.feed.adapter.FeedAdapter
 import xyz.khodok.khoblog.presentation.feed.viewmodel.FeedViewModel
 import xyz.khodok.khoblog.util.navigate
-import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {

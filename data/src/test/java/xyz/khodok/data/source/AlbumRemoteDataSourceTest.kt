@@ -1,12 +1,6 @@
 package xyz.khodok.data.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.data.scheduler.BaseSchedulerProvider
-import xyz.khodok.data.scheduler.SchedulerProvider
-import xyz.khodok.data.source.album.remote.AlbumRemoteDataSource
-import xyz.khodok.data.source.album.remote.AlbumRemoteDataSourceContract
-import xyz.khodok.data.mock.album
-import xyz.khodok.data.mock.photo
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -15,13 +9,20 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import xyz.khodok.data.mock.album
+import xyz.khodok.data.mock.photo
+import xyz.khodok.data.scheduler.BaseSchedulerProvider
+import xyz.khodok.data.scheduler.SchedulerProvider
+import xyz.khodok.data.source.album.remote.AlbumRemoteDataSource
+import xyz.khodok.data.source.album.remote.AlbumRemoteDataSourceContract
 
 class AlbumRemoteDataSourceTest {
 
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var albumService: AlbumService
+    @Mock
+    private lateinit var albumService: AlbumService
 
     private lateinit var schedulerProvider: BaseSchedulerProvider
     private lateinit var albumRemoteDataSource: AlbumRemoteDataSourceContract

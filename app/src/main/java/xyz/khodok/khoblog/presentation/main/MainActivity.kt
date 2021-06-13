@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import xyz.khodok.khoblog.R
 import dagger.hilt.android.AndroidEntryPoint
+import xyz.khodok.khoblog.R
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

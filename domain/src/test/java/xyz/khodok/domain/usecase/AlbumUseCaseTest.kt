@@ -1,11 +1,6 @@
 package xyz.khodok.domain.usecase
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.domain.repository.album.AlbumRepositoryContract
-import xyz.khodok.domain.usecase.album.AlbumUseCase
-import xyz.khodok.domain.usecase.album.AlbumUseCaseContract
-import xyz.khodok.domain.mock.album
-import xyz.khodok.domain.mock.photo
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -14,13 +9,19 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import xyz.khodok.domain.mock.album
+import xyz.khodok.domain.mock.photo
+import xyz.khodok.domain.repository.album.AlbumRepositoryContract
+import xyz.khodok.domain.usecase.album.AlbumUseCase
+import xyz.khodok.domain.usecase.album.AlbumUseCaseContract
 
 class AlbumUseCaseTest {
 
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var albumRepository: AlbumRepositoryContract
+    @Mock
+    private lateinit var albumRepository: AlbumRepositoryContract
 
     private lateinit var albumUseCase: AlbumUseCaseContract
 

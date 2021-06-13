@@ -2,11 +2,11 @@ package xyz.khodok.khoblog.presentation.detail.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.observers.DisposableSingleObserver
 import xyz.khodok.domain.model.Post
 import xyz.khodok.domain.usecase.post.PostUseCaseContract
 import xyz.khodok.khoblog.presentation.base.BaseViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
 @HiltViewModel

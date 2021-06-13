@@ -1,9 +1,6 @@
 package xyz.khodok.khoblog.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.domain.usecase.post.PostUseCaseContract
-import xyz.khodok.khoblog.mock.postDetail
-import xyz.khodok.khoblog.presentation.detail.viewmodel.DetailPostViewModel
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -12,6 +9,9 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import xyz.khodok.domain.usecase.post.PostUseCaseContract
+import xyz.khodok.khoblog.mock.postDetail
+import xyz.khodok.khoblog.presentation.detail.viewmodel.DetailPostViewModel
 
 class DetailPostViewModelTest {
 

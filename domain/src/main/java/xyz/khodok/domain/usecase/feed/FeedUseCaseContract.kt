@@ -1,10 +1,10 @@
 package xyz.khodok.domain.usecase.feed
 
-import xyz.khodok.domain.model.Post
 import io.reactivex.Single
+import xyz.khodok.domain.model.Post
 
 interface FeedUseCaseContract {
 
-    fun getAllPosts() : Single<List<Post>>
+    fun getAllPosts(): Single<List<Post>>
 
 }

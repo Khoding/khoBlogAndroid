@@ -1,12 +1,6 @@
 package xyz.khodok.data.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.data.scheduler.BaseSchedulerProvider
-import xyz.khodok.data.scheduler.SchedulerProvider
-import xyz.khodok.data.service.PostService
-import xyz.khodok.data.source.post.remote.PostRemoteDataSource
-import xyz.khodok.data.source.post.remote.PostRemoteDataSourceContract
-import xyz.khodok.data.mock.post
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -15,13 +9,20 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import xyz.khodok.data.mock.post
+import xyz.khodok.data.scheduler.BaseSchedulerProvider
+import xyz.khodok.data.scheduler.SchedulerProvider
+import xyz.khodok.data.service.PostService
+import xyz.khodok.data.source.post.remote.PostRemoteDataSource
+import xyz.khodok.data.source.post.remote.PostRemoteDataSourceContract
 
 class PostRemoteDataSourceTest {
 
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var postService: PostService
+    @Mock
+    private lateinit var postService: PostService
 
     private lateinit var schedulerProvider: BaseSchedulerProvider
     private lateinit var postRemoteDataSource: PostRemoteDataSourceContract

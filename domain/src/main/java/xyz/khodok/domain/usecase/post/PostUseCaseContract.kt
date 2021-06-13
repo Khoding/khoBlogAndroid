@@ -1,7 +1,7 @@
 package xyz.khodok.domain.usecase.post
 
-import xyz.khodok.domain.model.Post
 import io.reactivex.Single
+import xyz.khodok.domain.model.Post
 
 interface PostUseCaseContract {
 

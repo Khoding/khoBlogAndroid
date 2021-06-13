@@ -1,10 +1,6 @@
 package xyz.khodok.khoblog.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.domain.usecase.album.AlbumUseCaseContract
-import xyz.khodok.domain.usecase.user.UserUseCaseContract
-import xyz.khodok.khoblog.mock.user
-import xyz.khodok.khoblog.presentation.user.viewmodel.ProfileViewModel
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -13,6 +9,10 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import xyz.khodok.domain.usecase.album.AlbumUseCaseContract
+import xyz.khodok.domain.usecase.user.UserUseCaseContract
+import xyz.khodok.khoblog.mock.user
+import xyz.khodok.khoblog.presentation.user.viewmodel.ProfileViewModel
 
 class ProfileViewModelTest {
 

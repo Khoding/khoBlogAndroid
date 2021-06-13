@@ -1,9 +1,6 @@
 package xyz.khodok.khoblog.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.domain.usecase.feed.FeedUseCaseContract
-import xyz.khodok.khoblog.mock.feed
-import xyz.khodok.khoblog.presentation.feed.viewmodel.FeedViewModel
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -13,6 +10,9 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import xyz.khodok.domain.model.Post
+import xyz.khodok.domain.usecase.feed.FeedUseCaseContract
+import xyz.khodok.khoblog.mock.feed
+import xyz.khodok.khoblog.presentation.feed.viewmodel.FeedViewModel
 
 class FeedViewModelTest {
 

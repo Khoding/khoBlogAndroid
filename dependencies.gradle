@@ -54,18 +54,18 @@ ext {
     ]
 
     module = [
-            app           : ":app",
-            data          : ":data",
-            domain        : ":domain",
-            presentation  : ":presentation",
+            app         : ":app",
+            data        : ":data",
+            domain      : ":domain",
+            presentation: ":presentation",
     ]
 
     build_plugins = [
-            android_gradle   : [group: 'com.android.tools.build', name: 'gradle', version: versions.android_plugin],
-            kotlin_gradle    : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin],
-            android_junit    : [group: 'de.mannodermaus.gradle.plugins', name: 'android-junit5', version: '1.6.2.0'],
-            navigation_args  : [group: 'androidx.navigation', name: 'navigation-safe-args-gradle-plugin', version: versions.navigation],
-            hilt             : [group: 'com.google.dagger', name: 'hilt-android-gradle-plugin', version: versions.hilt_android],
+            android_gradle : [group: 'com.android.tools.build', name: 'gradle', version: versions.android_plugin],
+            kotlin_gradle  : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin],
+            android_junit  : [group: 'de.mannodermaus.gradle.plugins', name: 'android-junit5', version: '1.6.2.0'],
+            navigation_args: [group: 'androidx.navigation', name: 'navigation-safe-args-gradle-plugin', version: versions.navigation],
+            hilt           : [group: 'com.google.dagger', name: 'hilt-android-gradle-plugin', version: versions.hilt_android],
     ]
 
     libs = [

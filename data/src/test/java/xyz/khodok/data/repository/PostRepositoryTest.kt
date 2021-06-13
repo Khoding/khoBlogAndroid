@@ -1,14 +1,6 @@
 package xyz.khodok.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.data.repository.post.PostRepository
-import xyz.khodok.data.source.comment.remote.CommentRemoteDataSourceContract
-import xyz.khodok.data.source.post.remote.PostRemoteDataSourceContract
-import xyz.khodok.data.source.user.remote.UserRemoteDataSourceContract
-import xyz.khodok.domain.repository.post.PostRepositoryContract
-import xyz.khodok.data.mock.comment
-import xyz.khodok.data.mock.post
-import xyz.khodok.data.mock.user
 import io.reactivex.Single.just
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -18,6 +10,14 @@ import org.mockito.Mock
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
+import xyz.khodok.data.mock.comment
+import xyz.khodok.data.mock.post
+import xyz.khodok.data.mock.user
+import xyz.khodok.data.repository.post.PostRepository
+import xyz.khodok.data.source.comment.remote.CommentRemoteDataSourceContract
+import xyz.khodok.data.source.post.remote.PostRemoteDataSourceContract
+import xyz.khodok.data.source.user.remote.UserRemoteDataSourceContract
+import xyz.khodok.domain.repository.post.PostRepositoryContract
 import org.mockito.Mockito.`when` as whenever
 
 class PostRepositoryTest {
@@ -25,9 +25,12 @@ class PostRepositoryTest {
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var postRemoteDataSource: PostRemoteDataSourceContract
-    @Mock private lateinit var userRemoteDataSource: UserRemoteDataSourceContract
-    @Mock private lateinit var commentRemoteDataSource: CommentRemoteDataSourceContract
+    @Mock
+    private lateinit var postRemoteDataSource: PostRemoteDataSourceContract
+    @Mock
+    private lateinit var userRemoteDataSource: UserRemoteDataSourceContract
+    @Mock
+    private lateinit var commentRemoteDataSource: CommentRemoteDataSourceContract
 
     private lateinit var postRepository: PostRepositoryContract
 

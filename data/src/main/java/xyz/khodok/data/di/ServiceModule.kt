@@ -1,11 +1,11 @@
 package xyz.khodok.data.di
 
-import xyz.khodok.data.service.PostService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import xyz.khodok.data.service.PostService
 import javax.inject.Singleton
 
 @Module

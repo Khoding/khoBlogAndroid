@@ -1,10 +1,6 @@
 package xyz.khodok.domain.usecase
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.domain.repository.post.PostRepositoryContract
-import xyz.khodok.domain.usecase.post.PostUseCase
-import xyz.khodok.domain.usecase.post.PostUseCaseContract
-import xyz.khodok.domain.mock.postDetail
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -13,13 +9,18 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import xyz.khodok.domain.mock.postDetail
+import xyz.khodok.domain.repository.post.PostRepositoryContract
+import xyz.khodok.domain.usecase.post.PostUseCase
+import xyz.khodok.domain.usecase.post.PostUseCaseContract
 
 class PostUseCaseTest {
 
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var postRepository: PostRepositoryContract
+    @Mock
+    private lateinit var postRepository: PostRepositoryContract
 
     private lateinit var postUseCase: PostUseCaseContract
 

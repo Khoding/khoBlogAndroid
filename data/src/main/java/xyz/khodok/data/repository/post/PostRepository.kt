@@ -1,9 +1,9 @@
 package xyz.khodok.data.repository.post
 
+import io.reactivex.Single
 import xyz.khodok.data.source.post.remote.PostRemoteDataSourceContract
 import xyz.khodok.domain.model.*
 import xyz.khodok.domain.repository.post.PostRepositoryContract
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,10 +1,6 @@
 package xyz.khodok.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import xyz.khodok.data.repository.user.UserRepository
-import xyz.khodok.data.source.user.remote.UserRemoteDataSourceContract
-import xyz.khodok.domain.repository.user.UserRepositoryContract
-import xyz.khodok.data.mock.user
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
@@ -13,13 +9,18 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import xyz.khodok.data.mock.user
+import xyz.khodok.data.repository.user.UserRepository
+import xyz.khodok.data.source.user.remote.UserRemoteDataSourceContract
+import xyz.khodok.domain.repository.user.UserRepositoryContract
 
 class UserRepositoryTest {
 
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    @Mock private lateinit var userRemoteDataSource: UserRemoteDataSourceContract
+    @Mock
+    private lateinit var userRemoteDataSource: UserRemoteDataSourceContract
 
     private lateinit var userRepository: UserRepositoryContract
 
