@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+apply from: "$rootDir/dependencies.gradle"
+
+android {
+    compileSdkVersion compile_sdk
+    buildToolsVersion build_tools
+
+    defaultConfig {
+        minSdkVersion min_sdk
+        targetSdkVersion compile_sdk
+        versionCode version_code
+        versionName version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        animationsDisabled = true
+    }
+}
+
+dependencies {
+
+    // module
+    implementation project(':domain')
+
+    // hilt
+    kapt libs.hilt_android_compiler
+    implementation libs.hilt
+
+    // okhttp
+    implementation libs.okhttp_logging
+
+    // retrofit
+    implementation libs.retrofit
+    implementation libs.retrofit_rxjava2
+    implementation libs.retrofit_gson
+
+    // room
+    implementation libs.room_runtime
+    implementation libs.room_ktx
+    implementation libs.room_rxjava2
+    kapt libs.room_compiler
+
+    // rxjava
+    implementation libs.rx_java
+    implementation libs.rx_android
+
+    // gson
+    implementation libs.gson
+
+    // test
+    testImplementation libs.mockito_core
+    androidTestImplementation libs.mockito_android
+    testImplementation libs.junit
+    testImplementation libs.mockk
+    testImplementation libs.androidx_test
+    testImplementation libs.arch_core_test
+    androidTestImplementation libs.androidx_rules_test
+    androidTestImplementation libs.androidx_runner_test
+    androidTestImplementation libs.espresso
+}
