@@ -1,4 +1,4 @@
-package xyz.khodok.khoBlog.model.response
+package xyz.khodok.khoblog.model.response
 
 
 import com.google.gson.annotations.SerializedName

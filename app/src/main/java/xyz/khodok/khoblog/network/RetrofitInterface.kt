@@ -1,9 +1,9 @@
-package xyz.khodok.khoBlog.network
+package xyz.khodok.khoblog.network
 
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
-import xyz.khodok.khoBlog.model.response.Post
+import xyz.khodok.khoblog.model.response.Post
 
 interface RetrofitInterface {
 

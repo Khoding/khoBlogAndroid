@@ -1,4 +1,4 @@
-package xyz.khodok.khoBlog.network
+package xyz.khodok.khoblog.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
