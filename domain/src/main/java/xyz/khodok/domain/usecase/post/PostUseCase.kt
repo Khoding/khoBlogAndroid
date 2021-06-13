@@ -6,6 +6,6 @@ import javax.inject.Inject
 class PostUseCase @Inject constructor(private val postRepository: PostRepositoryContract) :
     PostUseCaseContract {
 
-    override fun getPostById(postId: Int) = postRepository.getPostById(postId)
+    override fun getPostBySlug(postSlug: String) = postRepository.getPostBySlug(postSlug)
 
 }

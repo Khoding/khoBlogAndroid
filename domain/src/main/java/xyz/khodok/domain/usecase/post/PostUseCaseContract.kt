@@ -5,6 +5,6 @@ import xyz.khodok.domain.model.Post
 
 interface PostUseCaseContract {
 
-    fun getPostById(postId: Int): Single<Post>
+    fun getPostBySlug(postSlug: String): Single<Post>
 
 }

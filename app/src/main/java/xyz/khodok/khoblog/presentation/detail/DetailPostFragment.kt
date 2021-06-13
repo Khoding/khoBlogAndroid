@@ -34,7 +34,7 @@ class DetailPostFragment : Fragment() {
 
         setUpView()
         setupObserver()
-        detailPostViewModel.fetchDetailPost(args.postId)
+        detailPostViewModel.fetchDetailPost(args.postSlug)
     }
 
     private fun setUpView() {
@@ -49,7 +49,7 @@ class DetailPostFragment : Fragment() {
                 response?.let { postDetail ->
                     contentLayout.visibility = View.VISIBLE
                     binding.titleTextView.text = postDetail.title
-                    binding.bodyTextView.text = postDetail.description
+                    binding.bodyTextView.text = postDetail.body
                 }
             })
             detailPostViewModel.isLoading.observe(viewLifecycleOwner, Observer { response ->

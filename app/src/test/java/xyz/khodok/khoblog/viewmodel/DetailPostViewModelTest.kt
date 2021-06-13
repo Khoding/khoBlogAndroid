@@ -9,6 +9,7 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import xyz.khodok.domain.model.Post
 import xyz.khodok.domain.usecase.post.PostUseCaseContract
 import xyz.khodok.khoblog.mock.postDetail
 import xyz.khodok.khoblog.presentation.detail.viewmodel.DetailPostViewModel
@@ -18,7 +19,7 @@ class DetailPostViewModelTest {
     @get:Rule
     var rule = InstantTaskExecutorRule()
 
-    private var testPostDetail: Single<PostDetail>? = null
+    private var testPostDetail: Single<Post>? = null
 
     @Mock
     private lateinit var postUseCase: PostUseCaseContract
@@ -35,8 +36,8 @@ class DetailPostViewModelTest {
     @Test
     fun getDetailPost_Success_Test() {
         testPostDetail = Single.just(postDetail)
-        `when`(postUseCase.getPostById(1)).thenReturn(testPostDetail)
-        postViewModel.fetchDetailPost(1)
+        `when`(postUseCase.getPostBySlug("quotes")).thenReturn(testPostDetail)
+        postViewModel.fetchDetailPost("quotes")
         Assert.assertEquals(postDetail, postViewModel.post.value)
         Assert.assertEquals(false, postViewModel.isError.value)
         Assert.assertEquals(false, postViewModel.isLoading.value)
@@ -45,16 +46,16 @@ class DetailPostViewModelTest {
     @Test
     fun getDetailPost_ErrorShow_Test() {
         testPostDetail = Single.error(Throwable())
-        `when`(postUseCase.getPostById(1)).thenReturn(testPostDetail)
-        postViewModel.fetchDetailPost(1)
+        `when`(postUseCase.getPostBySlug("quotes")).thenReturn(testPostDetail)
+        postViewModel.fetchDetailPost("quotes")
         Assert.assertEquals(true, postViewModel.isError.value)
     }
 
     @Test
     fun getDetailPost_LoadingShow_Test() {
         testPostDetail = Single.never()
-        `when`(postUseCase.getPostById(1)).thenReturn(testPostDetail)
-        postViewModel.fetchDetailPost(1)
+        `when`(postUseCase.getPostBySlug("quotes")).thenReturn(testPostDetail)
+        postViewModel.fetchDetailPost("quotes")
         Assert.assertEquals(true, postViewModel.isLoading.value)
     }
 

@@ -19,7 +19,7 @@
         android:label="Post Detail"
         tools:layout="@layout/fragment_detail_post">
         <argument
-            android:name="postId"
-            app:argType="integer" />
+            android:name="postSlug"
+            app:argType="string" />
     </fragment>
 </navigation>

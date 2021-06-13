@@ -17,8 +17,8 @@ class PostRemoteDataSource @Inject constructor(
             .observeOn(schedulerProvider.ui())
     }
 
-    override fun getPostById(postId: Int): Single<Post> {
-        return postService.getPostById(postId)
+    override fun getPostBySlug(postSlug: String): Single<Post> {
+        return postService.getPostBySlug(postSlug)
             .subscribeOn(schedulerProvider.io())
             .observeOn(schedulerProvider.ui())
     }

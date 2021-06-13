@@ -15,6 +15,6 @@ interface PostService {
     fun getPostsByUserId(@Query("userId") userId: Int): Single<List<Post>>
 
     @GET("post/{id}")
-    fun getPostById(@Path("id") postId: Int): Single<Post>
+    fun getPostBySlug(@Path("id") postSlug: String): Single<Post>
 
 }

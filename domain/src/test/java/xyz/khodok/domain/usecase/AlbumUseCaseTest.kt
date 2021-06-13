@@ -44,7 +44,7 @@ class AlbumUseCaseTest {
     }
 
     @Test
-    fun getPostById_Success_Test() {
+    fun getPostBySlug_Success_Test() {
         Mockito.`when`(albumRepository.getPhotoByAlbumId(1))
             .thenReturn(Single.just(listOf(photo)))
 

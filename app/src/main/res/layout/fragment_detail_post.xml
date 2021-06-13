@@ -32,6 +32,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
                     tools:text="@string/title" />
 
                 <TextView

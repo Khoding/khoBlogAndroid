@@ -51,7 +51,7 @@ class AlbumRemoteDataSourceTest {
     }
 
     @Test
-    fun getPostById_Success_Test() {
+    fun getPostBySlug_Success_Test() {
         Mockito.`when`(albumService.getPhotoByAlbumId(1))
             .thenReturn(Single.just(listOf(photo)))
 

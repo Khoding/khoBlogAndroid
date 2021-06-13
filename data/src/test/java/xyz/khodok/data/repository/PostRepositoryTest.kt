@@ -67,14 +67,14 @@ class PostRepositoryTest {
     }
 
     @Test
-    fun getCommentByPostId_Success_Test() {
-        whenever(commentRemoteDataSource.getCommentsByPostId(1))
+    fun getCommentBypostSlug_Success_Test() {
+        whenever(commentRemoteDataSource.getCommentsBypostSlug(1))
             .thenReturn(just(listOf(comment)))
 
-        postRepository.getCommentsByPostId(1)
+        postRepository.getCommentsBypostSlug(1)
 
-        verify(commentRemoteDataSource, times(1)).getCommentsByPostId(1)
-        assertNotNull("Comment not empty", postRepository.getCommentsByPostId(1))
+        verify(commentRemoteDataSource, times(1)).getCommentsBypostSlug(1)
+        assertNotNull("Comment not empty", postRepository.getCommentsBypostSlug(1))
     }
 
 }

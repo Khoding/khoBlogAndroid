@@ -51,14 +51,14 @@ class PostRemoteDataSourceTest {
     }
 
     @Test
-    fun getPostById_Success_Test() {
-        Mockito.`when`(postService.getPostById(1))
+    fun getPostBySlug_Success_Test() {
+        Mockito.`when`(postService.getPostBySlug(1))
             .thenReturn(Single.just(post))
 
-        postRemoteDataSource.getPostById(1)
+        postRemoteDataSource.getPostBySlug(1)
 
-        Mockito.verify(postService, Mockito.times(1)).getPostById(1)
-        Assert.assertNotNull("Post not empty", postRemoteDataSource.getPostById(1))
+        Mockito.verify(postService, Mockito.times(1)).getPostBySlug(1)
+        Assert.assertNotNull("Post not empty", postRemoteDataSource.getPostBySlug(1))
     }
 
 }

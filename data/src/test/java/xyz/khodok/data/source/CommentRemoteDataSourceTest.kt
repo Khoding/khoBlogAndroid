@@ -39,14 +39,14 @@ class CommentRemoteDataSourceTest {
     }
 
     @Test
-    fun getPostById_Success_Test() {
-        Mockito.`when`(commentService.getCommentsByPostId(1))
+    fun getPostBySlug_Success_Test() {
+        Mockito.`when`(commentService.getCommentsBypostSlug(1))
             .thenReturn(Single.just(listOf(comment)))
 
-        commentRemoteDataSource.getCommentsByPostId(1)
+        commentRemoteDataSource.getCommentsBypostSlug(1)
 
-        Mockito.verify(commentService, Mockito.times(1)).getCommentsByPostId(1)
-        Assert.assertNotNull("Comment not empty", commentRemoteDataSource.getCommentsByPostId(1))
+        Mockito.verify(commentService, Mockito.times(1)).getCommentsBypostSlug(1)
+        Assert.assertNotNull("Comment not empty", commentRemoteDataSource.getCommentsBypostSlug(1))
     }
 
 }

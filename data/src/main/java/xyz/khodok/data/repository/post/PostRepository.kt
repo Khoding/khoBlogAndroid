@@ -33,8 +33,8 @@ constructor(private val postRemoteDataSource: PostRemoteDataSourceContract) :
             }
     }
 
-    override fun getPostById(postId: Int): Single<Post> {
-        return postRemoteDataSource.getPostById(postId)
+    override fun getPostBySlug(postSlug: String): Single<Post> {
+        return postRemoteDataSource.getPostBySlug(postSlug)
             .flatMap { post ->
                 Single.just(
                     Post(

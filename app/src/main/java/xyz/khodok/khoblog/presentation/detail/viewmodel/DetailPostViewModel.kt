@@ -19,9 +19,9 @@ class DetailPostViewModel @Inject constructor(private val postUseCase: PostUseCa
     val post: LiveData<Post>
         get() = _post
 
-    fun fetchDetailPost(postId: Int) {
+    fun fetchDetailPost(postSlug: String) {
         isLoading.value = true
-        disposable = postUseCase.getPostById(postId)
+        disposable = postUseCase.getPostBySlug(postSlug)
             .subscribeWith(object : DisposableSingleObserver<Post>() {
                 override fun onSuccess(postDetail: Post) {
                     _post.value = postDetail

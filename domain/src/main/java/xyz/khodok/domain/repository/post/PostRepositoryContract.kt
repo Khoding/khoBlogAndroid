@@ -6,5 +6,5 @@ import xyz.khodok.domain.model.Post
 interface PostRepositoryContract {
     fun getAllPosts(): Single<List<Post>>
 
-    fun getPostById(postId: Int): Single<Post>
+    fun getPostBySlug(postSlug: String): Single<Post>
 }

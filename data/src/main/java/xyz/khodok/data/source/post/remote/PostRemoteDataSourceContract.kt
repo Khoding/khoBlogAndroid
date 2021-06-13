@@ -7,6 +7,6 @@ interface PostRemoteDataSourceContract {
 
     fun getAllPosts(): Single<List<Post>>
 
-    fun getPostById(postId: Int): Single<Post>
+    fun getPostBySlug(postSlug: String): Single<Post>
 
 }

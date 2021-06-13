@@ -79,7 +79,7 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
     }
 
     override fun onFeedClicked(feed: Post) {
-        navigate(FeedFragmentDirections.actionFeedFragmentToDetailPostFragment(feed.id))
+        navigate(FeedFragmentDirections.actionFeedFragmentToDetailPostFragment(feed.slug))
     }
 
 }

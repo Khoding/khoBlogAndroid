@@ -32,14 +32,14 @@ class PostUseCaseTest {
     }
 
     @Test
-    fun getPostById_Success_Test() {
-        Mockito.`when`(postRepository.getPostById(1))
+    fun getPostBySlug_Success_Test() {
+        Mockito.`when`(postRepository.getPostBySlug(1))
             .thenReturn(Single.just(postDetail))
 
-        postUseCase.getPostById(1)
+        postUseCase.getPostBySlug(1)
 
-        Mockito.verify(postRepository, Mockito.times(1)).getPostById(1)
-        Assert.assertNotNull("Post not empty", postUseCase.getPostById(1))
+        Mockito.verify(postRepository, Mockito.times(1)).getPostBySlug(1)
+        Assert.assertNotNull("Post not empty", postUseCase.getPostBySlug(1))
     }
 
 }
