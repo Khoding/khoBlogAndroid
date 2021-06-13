@@ -2,6 +2,7 @@ package xyz.khodok.domain.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class Post(
     @SerializedName("author")
@@ -16,4 +17,6 @@ data class Post(
     val slug: String,
     @SerializedName("title")
     val title: String,
+    @SerializedName("published_date")
+    val publishedDate: Date,
 )

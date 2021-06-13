@@ -24,6 +24,7 @@ constructor(private val postRemoteDataSource: PostRemoteDataSourceContract) :
                         description = post.description,
                         slug = post.slug,
                         author = post.author,
+                        publishedDate = post.publishedDate,
                         body = post.body
                     )
                 ).toObservable()
@@ -43,6 +44,7 @@ constructor(private val postRemoteDataSource: PostRemoteDataSourceContract) :
                         description = post.description,
                         slug = post.slug,
                         author = post.author,
+                        publishedDate = post.publishedDate,
                         body = post.body
                     )
                 )

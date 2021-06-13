@@ -14,22 +14,47 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Title, secondary and supporting text -->
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:orientation="horizontal">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/idTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/post_id"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/bodyTextView"
+            android:id="@+id/publishedDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/body"
+            android:text="@string/published_date"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="?android:attr/textColorSecondary" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary" />
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

@@ -27,8 +27,10 @@ class PostRepositoryTest {
 
     @Mock
     private lateinit var postRemoteDataSource: PostRemoteDataSourceContract
+
     @Mock
     private lateinit var userRemoteDataSource: UserRemoteDataSourceContract
+
     @Mock
     private lateinit var commentRemoteDataSource: CommentRemoteDataSourceContract
 
