@@ -4,12 +4,12 @@
 ext {
     build_tools = "30.0.0"
     compile_sdk = 30
-    min_sdk = 19
+    min_sdk = 23
     target_sdk = 30
 
     major = 1
     minor = 0
-    patch = 0
+    patch = 1
     build = 0
 
     version_code = major * 10000 + minor * 1000 + patch * 100 + build
