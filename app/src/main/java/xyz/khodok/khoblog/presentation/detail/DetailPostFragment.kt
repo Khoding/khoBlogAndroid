@@ -1,6 +1,8 @@
 package xyz.khodok.khoblog.presentation.detail
 
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +51,11 @@ class DetailPostFragment : Fragment() {
                 response?.let { postDetail ->
                     contentLayout.visibility = View.VISIBLE
                     binding.titleTextView.text = postDetail.title
-                    binding.bodyTextView.text = postDetail.body
+                    binding.bodyTextView.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        Html.fromHtml(postDetail.formattedMarkdown, Html.FROM_HTML_MODE_COMPACT)
+                    } else {
+                        Html.fromHtml(postDetail.formattedMarkdown)
+                    }
                 }
             })
             detailPostViewModel.isLoading.observe(viewLifecycleOwner, Observer { response ->

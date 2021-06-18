@@ -31,7 +31,7 @@ class NetworkModule {
 
     @Provides
     fun providesBaseUrl(): String {
-        return "https://blog.khodok.xyz/api/v2/"
+        return "https://blog.khodok.xyz/api/v3/"
     }
 
     @Provides

@@ -81,6 +81,8 @@ dependencies {
 
     // glide
     implementation libs.glide
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.preference:preference:1.1.1'
     kapt libs.glide_compiler
 
     // gson

@@ -5,18 +5,22 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class Post(
-    @SerializedName("author")
-    val author: Int,
-    @SerializedName("body")
-    val body: String?,
+    @SerializedName("author_name")
+    val authorName: String,
+    @SerializedName("created_date")
+    val createdDate: Date,
     @SerializedName("description")
     val description: String,
-    @SerializedName("id")
-    val id: Int,
+    @SerializedName("formatted_markdown")
+    val formattedMarkdown: String?,
+    @SerializedName("modified_date")
+    val modifiedDate: Date,
+    @SerializedName("pk")
+    val pk: Int,
+    @SerializedName("published_date")
+    val publishedDate: Date,
     @SerializedName("slug")
     val slug: String,
     @SerializedName("title")
-    val title: String,
-    @SerializedName("published_date")
-    val publishedDate: Date,
+    val title: String
 )

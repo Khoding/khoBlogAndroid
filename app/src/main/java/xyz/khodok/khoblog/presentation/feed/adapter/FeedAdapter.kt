@@ -37,7 +37,7 @@ class FeedAdapter(
             with(binding) {
                 titleTextView.text = feed.title
                 descriptionTextView.text = feed.description
-                val id = "Post #" + feed.id.toString()
+                val id = "Post #" + feed.pk.toString()
                 idTextView.text = id
                 publishedDateTextView.text = feed.publishedDate.toHttpDateString()
                 itemView.setOnClickListener {

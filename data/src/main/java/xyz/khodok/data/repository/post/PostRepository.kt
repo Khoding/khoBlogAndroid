@@ -19,13 +19,15 @@ constructor(private val postRemoteDataSource: PostRemoteDataSourceContract) :
             .flatMap { post ->
                 return@flatMap Single.just(
                     Post(
-                        id = post.id,
+                        pk = post.pk,
                         title = post.title,
                         description = post.description,
                         slug = post.slug,
-                        author = post.author,
+                        authorName = post.authorName,
+                        createdDate = post.createdDate,
+                        modifiedDate = post.modifiedDate,
                         publishedDate = post.publishedDate,
-                        body = post.body
+                        formattedMarkdown = post.formattedMarkdown
                     )
                 ).toObservable()
             }.toList()
@@ -39,13 +41,15 @@ constructor(private val postRemoteDataSource: PostRemoteDataSourceContract) :
             .flatMap { post ->
                 Single.just(
                     Post(
-                        id = post.id,
+                        pk = post.pk,
                         title = post.title,
                         description = post.description,
                         slug = post.slug,
-                        author = post.author,
+                        authorName = post.authorName,
+                        createdDate = post.createdDate,
+                        modifiedDate = post.modifiedDate,
                         publishedDate = post.publishedDate,
-                        body = post.body
+                        formattedMarkdown = post.formattedMarkdown
                     )
                 )
             }
