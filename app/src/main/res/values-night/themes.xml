@@ -5,7 +5,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.AppBarOverlay" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
 
-    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.PopupOverlay" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
 </resources>

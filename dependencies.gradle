@@ -8,7 +8,7 @@ ext {
     target_sdk = 30
 
     major = 1
-    minor = 1
+    minor = 2
     patch = 1
     build = 0
 
