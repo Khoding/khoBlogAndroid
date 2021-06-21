@@ -6,26 +6,10 @@
     android:layout_height="match_parent"
     tools:context="xyz.khodok.khoblog.presentation.feed.FeedFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/actionModeSplitBackground"
-            app:popupTheme="@style/Theme.MaterialComponents.DayNight.DarkActionBar.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <LinearLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/feedRecyclerView"

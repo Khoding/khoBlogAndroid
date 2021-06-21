@@ -6,16 +6,11 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
-import xyz.khodok.khoblog.R
 import xyz.khodok.khoblog.databinding.FragmentDetailPostBinding
 import xyz.khodok.khoblog.presentation.detail.viewmodel.DetailPostViewModel
 
@@ -38,16 +33,6 @@ class DetailPostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val navController = findNavController()
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-
-        toolbar.visibility = View.INVISIBLE
-        toolbar.setupWithNavController(navController, appBarConfiguration)
-        ///Création du menu
-        toolbar.visibility = View.VISIBLE
-
         setUpView()
         setupObserver()
         detailPostViewModel.fetchDetailPost(args.postSlug)

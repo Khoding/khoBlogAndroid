@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.khodok.domain.model.Post
-import xyz.khodok.khoblog.R
 import xyz.khodok.khoblog.databinding.FragmentFeedBinding
 import xyz.khodok.khoblog.presentation.feed.adapter.FeedAdapter
 import xyz.khodok.khoblog.presentation.feed.viewmodel.FeedViewModel
@@ -39,25 +34,6 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val navController = findNavController()
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-
-        toolbar.visibility = View.INVISIBLE
-        toolbar.setupWithNavController(navController, appBarConfiguration)
-        ///Création du menu
-        toolbar.inflateMenu(R.menu.menu_main)
-        toolbar.visibility = View.VISIBLE
-
-        ///Gestionnaire de clics
-        toolbar.setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener {
-            if (it.itemId == R.id.settings_dest) {
-                val action = FeedFragmentDirections.actionFeedFragmentToSettingsFragment()
-                navController.navigate(action)
-            }
-            return@OnMenuItemClickListener true
-        })
 
         setUpView()
         setupObserver()

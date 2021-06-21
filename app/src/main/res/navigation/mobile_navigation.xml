@@ -2,23 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/graph_root_navigation"
-    app:startDestination="@id/feedFragment">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_feed">
+
     <fragment
-        android:id="@+id/feedFragment"
+        android:id="@+id/nav_feed"
         android:name="xyz.khodok.khoblog.presentation.feed.FeedFragment"
         android:label="Khodok's Blog"
         tools:layout="@layout/fragment_feed">
         <action
             android:id="@+id/action_feedFragment_to_detailPostFragment"
             app:destination="@id/detailPostFragment" />
-        <action
-            android:id="@+id/action_feedFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/detailPostFragment"

@@ -83,6 +83,8 @@ dependencies {
     implementation libs.glide
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
     kapt libs.glide_compiler
 
     // gson

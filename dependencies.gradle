@@ -8,8 +8,8 @@ ext {
     target_sdk = 30
 
     major = 1
-    minor = 2
-    patch = 1
+    minor = 3
+    patch = 0
     build = 0
 
     version_code = major * 10000 + minor * 1000 + patch * 100 + build
