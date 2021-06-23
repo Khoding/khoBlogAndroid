@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.khodok.khoblog.databinding.FragmentDetailPostBinding
@@ -26,7 +25,7 @@ class DetailPostFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailPostBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,14 +38,11 @@ class DetailPostFragment : Fragment() {
     }
 
     private fun setUpView() {
-        with(binding) {
-
-        }
     }
 
     private fun setupObserver() {
         with(binding) {
-            detailPostViewModel.post.observe(viewLifecycleOwner, Observer { response ->
+            detailPostViewModel.post.observe(viewLifecycleOwner, { response ->
                 response?.let { postDetail ->
                     contentLayout.visibility = View.VISIBLE
                     binding.titleTextView.text = postDetail.title
@@ -58,7 +54,7 @@ class DetailPostFragment : Fragment() {
                         }
                 }
             })
-            detailPostViewModel.isLoading.observe(viewLifecycleOwner, Observer { response ->
+            detailPostViewModel.isLoading.observe(viewLifecycleOwner, { response ->
                 response?.let {
                     loadingLayout.root.visibility = if (it) View.VISIBLE else View.GONE
                     if (it) {
@@ -67,7 +63,7 @@ class DetailPostFragment : Fragment() {
                     }
                 }
             })
-            detailPostViewModel.isError.observe(viewLifecycleOwner, Observer { response ->
+            detailPostViewModel.isError.observe(viewLifecycleOwner, { response ->
                 response?.let {
                     errorLayout.root.visibility = if (it) View.VISIBLE else View.GONE
                     if (it) {

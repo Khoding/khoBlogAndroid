@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/post_list_fragment">
+
+    <fragment
+        android:id="@+id/post_list_fragment"
+        android:name="xyz.khodok.khoblog.presentation.main.ui.PostListFragment"
+        android:label="PostListFragment">
+        <action
+            android:id="@+id/show_post_detail"
+            app:destination="@id/post_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/post_detail_fragment"
+        android:name="xyz.khodok.khoblog.presentation.main.ui.PostDetailFragment"
+        android:label="post_detail"
+        tools:layout="@layout/fragment_post_detail">
+        <argument
+            android:name="item_id"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+</navigation>

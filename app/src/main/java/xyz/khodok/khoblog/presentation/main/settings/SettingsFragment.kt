@@ -1,4 +1,4 @@
-package xyz.khodok.khoblog.presentation.main
+package xyz.khodok.khoblog.presentation.main.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +12,10 @@ class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,16 +28,16 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setUpView() {
-        with(binding) {
-            val version =
-                "Version: " + BuildConfig.VERSION_NAME + " | " + BuildConfig.VERSION_CODE.toString()
-            binding.versionTextView.text = version
-        }
-    }
+        val about =
+            "This app has no real use. It's a way for it's developer, Khodok, to get better at Android development," +
+                    "you can use it and report anything that you find odd." +
+                    "I'd like to improve so any feedback is good." +
+                    "If you're using it and you don't know me, that means I'm peaking," +
+                    " and you should make sure to try the website at https://blog.khodok.xyz since this is where the real work is done."
+        val version =
+            "Version: " + BuildConfig.VERSION_NAME + " | " + BuildConfig.VERSION_CODE.toString()
 
-    companion object {
-        fun newInstance(): SettingsFragment {
-            return SettingsFragment()
-        }
+        binding.appAboutTextView.text = about
+        binding.versionTextView.text = version
     }
 }

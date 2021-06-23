@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.khodok.domain.model.Post
@@ -27,7 +26,7 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFeedBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,13 +50,13 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
 
     private fun setupObserver() {
         with(binding) {
-            feedViewModel.feed.observe(viewLifecycleOwner, Observer { response ->
+            feedViewModel.feed.observe(viewLifecycleOwner, { response ->
                 response?.let {
                     contentLayout.visibility = View.VISIBLE
                     adapter.addToList(it.toMutableList())
                 }
             })
-            feedViewModel.isLoading.observe(viewLifecycleOwner, Observer { response ->
+            feedViewModel.isLoading.observe(viewLifecycleOwner, { response ->
                 response?.let {
                     loadingLayout.root.visibility = if (it) View.VISIBLE else View.GONE
                     if (it) {
@@ -66,7 +65,7 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
                     }
                 }
             })
-            feedViewModel.isError.observe(viewLifecycleOwner, Observer { response ->
+            feedViewModel.isError.observe(viewLifecycleOwner, { response ->
                 response?.let {
                     errorLayout.root.visibility = if (it) View.VISIBLE else View.GONE
                     if (it) {
