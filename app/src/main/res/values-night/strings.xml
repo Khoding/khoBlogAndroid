@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="about">About</string>
     <string name="master_detail_test">Master/Detail Test</string>
+    <string name="about_card_title">About this app</string>
 </resources>
