@@ -39,7 +39,6 @@ class FeedFragment : Fragment(), FeedAdapter.OnFeedClickListener {
         feedViewModel.fetchFeed()
     }
 
-
     private fun setUpView() {
         with(binding) {
             feedRecyclerView.layoutManager = LinearLayoutManager(activity)

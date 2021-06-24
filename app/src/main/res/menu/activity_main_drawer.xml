@@ -8,10 +8,5 @@
             android:id="@+id/nav_feed"
             android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/menu_home" />
-
-        <item
-            android:id="@+id/postListFragment"
-            android:icon="@drawable/ic_baseline_article_24"
-            android:title="@string/master_detail_test" />
     </group>
 </menu>

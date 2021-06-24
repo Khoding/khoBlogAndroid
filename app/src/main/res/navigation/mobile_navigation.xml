@@ -28,22 +28,4 @@
         android:name="xyz.khodok.khoblog.presentation.main.settings.SettingsFragment"
         android:label="App Info / Settings"
         tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/postListFragment"
-        android:name="xyz.khodok.khoblog.presentation.main.ui.PostListFragment"
-        android:label="This is a test for a future implementation of a Master/Detail interface">
-        <action
-            android:id="@+id/show_post_detail"
-            app:destination="@id/post_detail_fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/post_detail_fragment"
-        android:name="xyz.khodok.khoblog.presentation.main.ui.PostDetailFragment"
-        android:label="post_detail"
-        tools:layout="@layout/fragment_post_detail">
-        <argument
-            android:name="item_id"
-            android:defaultValue=""
-            app:argType="string" />
-    </fragment>
 </navigation>
