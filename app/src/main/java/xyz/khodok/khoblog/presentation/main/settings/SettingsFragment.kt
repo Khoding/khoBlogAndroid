@@ -29,11 +29,11 @@ class SettingsFragment : Fragment() {
 
     private fun setUpView() {
         val about =
-            "This app has no real use. It's a way for its developer, Khodok, to get better at Android development," +
+            "This app has no real use. It's a way for its developer, Khodok, to get better at Android development, " +
                     "you can use it and report anything that you find odd." +
-                    "I'd like to improve so any feedback is good." +
-                    "If you're using it and you don't know me, that means I'm peaking," +
-                    " and you should make sure to try the website at https://blog.khodok.xyz since this is where the real work is done."
+                    " I'd like to improve so any feedback is good." +
+                    " If you're using it and you don't know me, that means I'm peaking, " +
+                    "and you should make sure to try the website at https://blog.khodok.xyz since this is where the real work is done."
         val version =
             "Version: " + BuildConfig.VERSION_NAME + " | " + BuildConfig.VERSION_CODE.toString()
 
