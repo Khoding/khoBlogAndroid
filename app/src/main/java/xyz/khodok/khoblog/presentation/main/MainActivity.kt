@@ -2,6 +2,8 @@ package xyz.khodok.khoblog.presentation.main
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import xyz.khodok.khoblog.BuildConfig
 import xyz.khodok.khoblog.R
 
 @AndroidEntryPoint
@@ -45,6 +48,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        setUpView()
+    }
+
+    private fun setUpView() {
+        val version =
+            "Version: " + BuildConfig.VERSION_NAME + " | " + BuildConfig.VERSION_CODE.toString()
+
+        val versionTextView: TextView = findViewById(R.id.versionTextView)
+
+        versionTextView.text = version
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
