@@ -17,7 +17,7 @@ data class Post(
     val modifiedDate: Date,
     @SerializedName("pk")
     val pk: Int,
-    @SerializedName("published_date")
+    @SerializedName("pub_date")
     val publishedDate: Date,
     @SerializedName("slug")
     val slug: String,

@@ -9,8 +9,8 @@ ext {
 
     major = 1
     minor = 3
-    patch = 8
-    build = 1
+    patch = 9
+    build = 0
 
     version_code = major * 10000 + minor * 1000 + patch * 100 + build
     version_name = "${major}.${minor}.${patch}"
