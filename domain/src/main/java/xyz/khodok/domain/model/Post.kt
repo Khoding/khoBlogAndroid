@@ -13,7 +13,7 @@ data class Post(
     val description: String,
     @SerializedName("formatted_markdown")
     val formattedMarkdown: String?,
-    @SerializedName("modified_date")
+    @SerializedName("mod_date")
     val modifiedDate: Date,
     @SerializedName("pk")
     val pk: Int,
