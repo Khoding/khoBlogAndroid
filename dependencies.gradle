@@ -8,9 +8,9 @@ ext {
     target_sdk = 30
 
     major = 1
-    minor = 3
-    patch = 10
-    build = 0
+    minor = 5
+    patch = 2
+    build = 2
 
     version_code = major * 10000 + minor * 1000 + patch * 100 + build
     version_name = "${major}.${minor}.${patch}"
